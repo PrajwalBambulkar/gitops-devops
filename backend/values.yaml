@@ -1,8 +1,8 @@
 replicaCount: 2
 
 image:
-  repository: prajwalbambulkar/nodejs/backend
-  tag: "3"          # <-- Update this tag manually to promote to production
+  repository: prajwalbambulkar/nodejs
+  tag: "4"          # <-- Update this tag manually to promote to production
   pullPolicy: IfNotPresent
 
 service:
