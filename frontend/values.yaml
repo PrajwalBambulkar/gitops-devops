@@ -1,0 +1,12 @@
+replicaCount: 2
+
+image:
+  repository: prajwalbambulkar/nodejs/frontend
+  tag: "3"          # <-- Update manually to deploy new frontend build
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
+
+containerPort: 8080
