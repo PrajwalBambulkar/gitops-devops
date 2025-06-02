@@ -1,0 +1,12 @@
+replicaCount: 2
+
+image:
+  repository: prajwalbambulkar/nodejs/backend
+  tag: "3"          # <-- Update this tag manually to promote to production
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 3000
+
+containerPort: 3000
