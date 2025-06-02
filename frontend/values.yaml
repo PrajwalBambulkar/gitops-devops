@@ -1,8 +1,8 @@
 replicaCount: 2
 
 image:
-  repository: prajwalbambulkar/nodejs/frontend
-  tag: "-22"          # <-- Update manually to deploy new frontend build
+  repository: prajwalbambulkar/3tiernodejs
+  tag: frontend-22          # <-- Update manually to deploy new frontend build
   pullPolicy: IfNotPresent
 
 service:
