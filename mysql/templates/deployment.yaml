@@ -1,18 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql-container
-  labels:
-    app: mysql-container
+  name: mysql
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   selector:
     matchLabels:
-      app: mysql-container
+      app: mysql
   template:
     metadata:
       labels:
-        app: mysql-container
+        app: mysql
     spec:
       containers:
         - name: mysql
@@ -23,25 +21,9 @@ spec:
               value: "{{ .Values.mysqlRootPassword }}"
             - name: MYSQL_DATABASE
               value: "{{ .Values.mysqlDatabase }}"
+            - name: MYSQL_USER
+              value: "{{ .Values.mysqlUser }}"
+            - name: MYSQL_PASSWORD
+              value: "{{ .Values.mysqlPassword }}"
           ports:
             - containerPort: 3306
-              name: mysql
-          resources:
-            requests:
-              memory: "256Mi"
-              cpu: "250m"
-            limits:
-              memory: "512Mi"
-              cpu: "500m"
-          volumeMounts:
-            {{- if .Values.persistence.enabled }}
-            - name: mysql-persistent-storage
-              mountPath: /var/lib/mysql
-            {{- end }}
-      volumes:
-        {{- if .Values.persistence.enabled }}
-        - name: mysql-persistent-storage
-          persistentVolumeClaim:
-            claimName: mysql-pvc
-        {{- end }}
-
