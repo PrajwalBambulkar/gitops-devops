@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/PrajwalBambulkar/gitops-devops.git'
+    repoURL: 'https://github.com/PrajwalBambulkar/gitops-devops'
     targetRevision: HEAD
     path: mysql
   destination:
