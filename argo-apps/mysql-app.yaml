@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mysql-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://your-git-repo-url.git'  # Replace with your actual Git repo URL
+    targetRevision: HEAD
+    path: mysql
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: mysql
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
