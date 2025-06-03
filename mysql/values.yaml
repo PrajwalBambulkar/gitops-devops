@@ -1,18 +1,12 @@
-replicaCount: 1
-
 image:
   repository: mysql
-  tag: "8.0"
+  tag: "5.7"
   pullPolicy: IfNotPresent
 
 mysqlRootPassword: yourpassword
 mysqlDatabase: testdb
+mysqlUser: root
+mysqlPassword: yourpassword
 
 service:
-  type: ClusterIP
-  name: mysql-container
   port: 3306
-
-persistence:
-  enabled: false  # Set true if you want persistent data
-
