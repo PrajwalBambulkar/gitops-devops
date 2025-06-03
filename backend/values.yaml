@@ -10,3 +10,9 @@ service:
   port: 3000
 
 containerPort: 3000
+env:
+  DB_HOST: mysql
+  DB_USER: root
+  DB_PASS: yourpassword
+  DB_NAME: testdb
+  DB_PORT: "3306"
