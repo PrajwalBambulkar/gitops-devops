@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://your-git-repo-url.git'  # Replace with your actual Git repo URL
+    repoURL: 'https://github.com/PrajwalBambulkar/gitops-devops'  # Replace with your actual Git repo URL
     targetRevision: HEAD
     path: mysql
     helm:
