@@ -6,7 +6,7 @@ spec:
   type: {{ .Values.service.type }}
   selector:
     app: frontend
-    color: {{ .Values.color }}
+    color: {{ .Values.activeColor  }}
   ports:
     - protocol: TCP
       port: {{ .Values.service.port }}
