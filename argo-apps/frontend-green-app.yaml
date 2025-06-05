@@ -14,7 +14,7 @@ spec:
         - name: color
           value: green
         - name: image.tag
-          value: frontend-32
+          value: frontend-33
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: frontend
