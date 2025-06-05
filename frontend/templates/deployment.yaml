@@ -7,10 +7,12 @@ spec:
   selector:
     matchLabels:
       app: frontend
+      color: {{ .Values.color }}
   template:
     metadata:
       labels:
         app: frontend
+        color: {{ .Values.color }}
     spec:
       containers:
         - name: frontend
