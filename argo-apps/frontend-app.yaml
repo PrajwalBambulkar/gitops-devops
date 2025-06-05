@@ -9,6 +9,14 @@ spec:
     repoURL: 'https://github.com/PrajwalBambulkar/gitops-devops'
     targetRevision: HEAD
     path: frontend
+    helm:
+      valueFiles:
+        - values.yaml
+      parameters:
+        - name: image.tag
+          value: frontend-31
+        - name: color
+          value: blue
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: frontend
