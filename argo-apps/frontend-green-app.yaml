@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: frontend-green-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/PrajwalBambulkar/gitops-devops'
+    targetRevision: HEAD
+    path: frontend
+    helm:
+      parameters:
+        - name: color
+          value: green
+        - name: image.tag
+          value: frontend-32
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: frontend
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+
