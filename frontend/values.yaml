@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: prajwalbambulkar/3tiernodejs
-  tag: frontend-33          # <-- Update manually to deploy new frontend build
+  tag: frontend-31          # <-- Update manually to deploy new frontend build
   pullPolicy: IfNotPresent
 
 service:
@@ -10,6 +10,6 @@ service:
   port: 80
 
 containerPort: 80
-color: green
-activeColor: green
+color: blue
+activeColor: blue
 
