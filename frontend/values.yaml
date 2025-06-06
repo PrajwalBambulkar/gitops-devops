@@ -12,4 +12,6 @@ service:
 containerPort: 80
 color: blue
 activeColor: blue
+hpa:
+  enabled: true
 
