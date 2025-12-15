@@ -16,4 +16,4 @@ env:
   DB_PASS: yourpassword
   DB_NAME: testdb
   DB_PORT: "3306"
-  DB_PASS: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoicHJhandhbCJ9.signature
+
