@@ -4,7 +4,7 @@
   "private": true,
   "description": "Test repo for Trivy dependency vulnerability scanning",
   "dependencies": {
-    "lodash": "4.17.21"
+    "lodash": "4.17.11"
   }
 }
 
