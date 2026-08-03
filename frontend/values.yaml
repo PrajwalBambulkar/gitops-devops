@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: prajwalbambulkar/frontend
-  tag: frontend-15          # <-- Update manually to deploy new frontend build
+  tag: frontend-24
   pullPolicy: IfNotPresent
 
 service:
