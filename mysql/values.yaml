@@ -1,5 +1,9 @@
-auth:
-  database: testdb
-  rootPassword: yourpassword
 image:
-  tag: 5.7.43
+  repository: mysql
+  tag: "5.7.43"
+  pullPolicy: IfNotPresent
+
+mysqlRootPassword: yourpassword
+mysqlDatabase: testdb
+mysqlUser: appuser
+mysqlPassword: apppassword
