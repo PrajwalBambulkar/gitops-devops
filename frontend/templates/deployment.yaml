@@ -4,7 +4,7 @@ metadata:
   name: frontend-{{ .Values.color }}
   labels:
     app: frontend
-    color: {{ .Values.color}}
+    color: {{ .Values.color }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -22,4 +22,15 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: {{ .Values.containerPort }}
-          
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.containerPort }}
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.containerPort }}
+            initialDelaySeconds: 20
+            periodSeconds: 10

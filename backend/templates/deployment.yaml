@@ -28,3 +28,25 @@ spec:
               value: "{{ .Values.env.DB_NAME }}"
             - name: DB_PORT
               value: "{{ .Values.env.DB_PORT }}"
+          startupProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.containerPort }}
+            periodSeconds: 5
+            failureThreshold: 30
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.containerPort }}
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.containerPort }}
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
