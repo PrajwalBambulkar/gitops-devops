@@ -8,6 +8,11 @@ metadata:
 spec:
   ingressClassName: nginx
 
+  tls:
+    - hosts:
+        - frontend.local
+      secretName: frontend-tls
+
   rules:
     - host: frontend.local
       http:
