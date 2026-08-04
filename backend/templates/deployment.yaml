@@ -36,19 +36,34 @@ spec:
 
           env:
             - name: DB_HOST
-              value: "{{ .Values.env.DB_HOST }}"
-
-            - name: DB_USER
-              value: "{{ .Values.env.DB_USER }}"
-
-            - name: DB_PASS
-              value: "{{ .Values.env.DB_PASS }}"
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: DB_HOST
 
             - name: DB_NAME
-              value: "{{ .Values.env.DB_NAME }}"
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: DB_NAME
 
             - name: DB_PORT
-              value: "{{ .Values.env.DB_PORT }}"
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: DB_PORT
+
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: DB_USER
+
+            - name: DB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: DB_PASS
 
           startupProbe:
             httpGet:

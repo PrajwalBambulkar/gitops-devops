@@ -26,12 +26,14 @@ resources:
     cpu: "1"
     memory: "1Gi"
 
-env:
+config:
   DB_HOST: mysql
-  DB_USER: root
-  DB_PASS: yourpassword
   DB_NAME: testdb
   DB_PORT: "3306"
+
+secret:
+  DB_USER: root
+  DB_PASS: yourpassword
 
 pdb:
   enabled: true
