@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: prajwalbambulkar/backend
-  tag: backend-9
+  tag: backend-10
   pullPolicy: IfNotPresent
 
 service:
