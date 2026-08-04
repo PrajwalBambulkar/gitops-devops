@@ -13,3 +13,7 @@ containerPort: 80
 color: blue
 activeColor: blue
 
+ingress:
+  enabled: true
+  className: nginx
+  host: frontend.local
