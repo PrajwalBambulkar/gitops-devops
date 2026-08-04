@@ -1,36 +1,61 @@
 apiVersion: apps/v1
 kind: Deployment
+
 metadata:
   name: frontend-{{ .Values.color }}
   labels:
     app: frontend
     color: {{ .Values.color }}
+
 spec:
+{{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
+{{- end }}
+
   selector:
     matchLabels:
       app: frontend
       color: {{ .Values.color }}
+
   template:
     metadata:
       labels:
         app: frontend
         color: {{ .Values.color }}
+
     spec:
       containers:
         - name: frontend
+
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+
           ports:
             - containerPort: {{ .Values.containerPort }}
+
+          resources:
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+
           readinessProbe:
             httpGet:
               path: /
               port: {{ .Values.containerPort }}
             initialDelaySeconds: 5
             periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 3
+
           livenessProbe:
             httpGet:
               path: /
               port: {{ .Values.containerPort }}
             initialDelaySeconds: 20
             periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3

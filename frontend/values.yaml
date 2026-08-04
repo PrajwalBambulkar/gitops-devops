@@ -1,5 +1,12 @@
 replicaCount: 2
 
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 80
+
 image:
   repository: prajwalbambulkar/frontend
   tag: frontend-24
@@ -17,3 +24,11 @@ ingress:
   enabled: true
   className: nginx
   host: frontend.local
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "500m"
+    memory: "512Mi"

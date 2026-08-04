@@ -1,5 +1,12 @@
 replicaCount: 2
 
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 80
+
 image:
   repository: prajwalbambulkar/backend
   tag: backend-10
@@ -10,10 +17,18 @@ service:
   port: 3000
 
 containerPort: 3000
+
+resources:
+  requests:
+    cpu: "250m"
+    memory: "256Mi"
+  limits:
+    cpu: "1"
+    memory: "1Gi"
+
 env:
   DB_HOST: mysql
   DB_USER: root
   DB_PASS: yourpassword
   DB_NAME: testdb
   DB_PORT: "3306"
-
