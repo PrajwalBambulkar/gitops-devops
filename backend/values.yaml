@@ -9,7 +9,7 @@ autoscaling:
 
 image:
   repository: prajwalbambulkar/backend
-  tag: backend-11
+  tag: backend-12
   pullPolicy: IfNotPresent
 
 service:
